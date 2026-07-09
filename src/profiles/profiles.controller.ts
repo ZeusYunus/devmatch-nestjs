@@ -1,4 +1,5 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { CreateProfileDto } from 'src/dto/create-profile.dto';
 
 @Controller('profiles')
 export class ProfilesController {
@@ -15,6 +16,14 @@ export class ProfilesController {
     }
 
     // POST /profiles
+    @Post()
+    create(@Body() createProfileDto: CreateProfileDto) {
+        return {
+            name: createProfileDto.name,
+            description: createProfileDto.description
+        };
+    }
+
     // PUT /profiles/:id
     // DELETE /profiles/:id
 }

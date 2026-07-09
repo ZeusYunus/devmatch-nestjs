@@ -6,3 +6,6 @@ nest g module profiles
 
 ## Create a controller
 nest g controller profiles
+
+## Run bash script
+bash post.sh
