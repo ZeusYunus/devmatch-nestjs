@@ -17,8 +17,14 @@ Accept: application/json
 
 ###
 
-# Get with query parameter
+# Get with query
 GET {{baseUrl}}/profiles?location=Durban
+Accept: application/json
+
+###
+
+# Get with parameter
+GET {{baseUrl}}/profiles/1
 Accept: application/json
 
 #############################################################################################################################################
