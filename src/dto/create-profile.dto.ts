@@ -1,4 +1,4 @@
 export class CreateProfileDto {
-    name: string;
-    description: string;
+    name!: string;
+    description!: string;
 }
