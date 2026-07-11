@@ -1,0 +1,27 @@
+import { Injectable } from '@nestjs/common';
+import { randomUUID } from 'crypto';
+
+@Injectable()
+export class ProfilesService {
+    private profiles = [
+        {
+            id: randomUUID(),
+            name: 'Brianna Watts',
+            description: 'Looking for someone to merge with my heart'
+        },
+        {
+            id: randomUUID(),
+            name: 'Jasper Quinn',
+            description: 'Seeking a partner in crime to compile my heart'
+        },
+        {
+            id: randomUUID(),
+            name: 'Leo Park',
+            description: 'You think you know VIM'
+        },
+    ];
+
+    findAll() {
+        return this.profiles;
+    }
+}
