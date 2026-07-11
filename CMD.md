@@ -16,6 +16,8 @@ nest generate guard profiles
 ## Packages
 npm install @nestjs/typeorm typeorm mysql2
 npm install @nestjs/throttler
+npm install nestjs-pino pino pino-pretty
+npm install @nestjs/terminus
 
 ## Run bash script
 bash post.sh

@@ -3,14 +3,16 @@ import { CreateProfileDto } from 'src/dto/create-profile.dto';
 import { UpdateProfileDto } from 'src/dto/update-profile.dto';
 import { ProfilesService } from './profiles.service';
 import { ProfilesGuard } from './profiles.guard';
+import { PinoLogger } from 'nestjs-pino';
 
 @Controller('profiles')
 export class ProfilesController {
-    constructor(private profilesService: ProfilesService) { }
+    constructor(private profilesService: ProfilesService, private readonly logger: PinoLogger) { }
 
     // GET /profiles
     @Get()
     findAll() {
+        this.logger.info('Fetching profiles');
         return this.profilesService.findAll();
     }
 
@@ -40,6 +42,7 @@ export class ProfilesController {
     @UseGuards(ProfilesGuard)
     @HttpCode(HttpStatus.NO_CONTENT)
     remove(@Param('id', ParseUUIDPipe) id: string) {
+        this.logger.info(`User ${id} has been deleted.`)
         return this.profilesService.remove(id);
     }
 }
