@@ -28,10 +28,7 @@ export class ProfilesController {
     // PUT /profiles/:id
     @Put(':id')
     update(@Param('id') id: string, @Body() updateProfileDto: UpdateProfileDto) {
-        return {
-            id,
-            ...updateProfileDto
-        };
+        return this.profilesService.update(id, updateProfileDto);
     }
 
     // DELETE /profiles/:id
