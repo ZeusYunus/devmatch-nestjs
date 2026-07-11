@@ -18,6 +18,8 @@ npm install @nestjs/typeorm typeorm mysql2
 npm install @nestjs/throttler
 npm install nestjs-pino pino pino-pretty
 npm install @nestjs/terminus
+npm install @willsoto/nestjs-prometheus prom-client
+npm install @sentry/nestjs @sentry/node
 
 ## Run bash script
 bash post.sh

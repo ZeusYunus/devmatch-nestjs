@@ -11,6 +11,12 @@ Accept: application/json
 
 ###
 
+# Metrics (Prometheus)
+GET {{baseUrl}}/metrics
+Accept: application/json
+
+###
+
 # Get
 GET {{baseUrl}}/profiles
 Accept: application/json

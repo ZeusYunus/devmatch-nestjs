@@ -8,9 +8,11 @@ import { Profile } from './profiles/entities/profile.entity';
 import { ThrottlerGuard, ThrottlerModule, minutes } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { LoggerModule } from 'nestjs-pino';
+import { PrometheusModule } from '@willsoto/nestjs-prometheus';
 
 @Module({
   imports: [
+    PrometheusModule.register(),
     ProfilesModule,
     TypeOrmModule.forRoot({
       type: 'mariadb',
