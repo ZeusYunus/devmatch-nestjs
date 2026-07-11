@@ -52,5 +52,5 @@ Content-Type: {{contentType}}
 ###
 
 # Delete profile
-DELETE  {{baseUrl}}/profiles/ijsd899sdf
+DELETE  {{baseUrl}}/profiles/b063d182-ba95-4609-b7f9-28f5233617c2
 Content-Type: {{contentType}}
