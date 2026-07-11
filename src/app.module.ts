@@ -1,11 +1,36 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProfilesModule } from './profiles/profiles.module';
+import { User } from './typeorm';
+import { Profile } from './profiles/entities/profile.entity';
+import { ThrottlerGuard, ThrottlerModule, minutes } from '@nestjs/throttler';
 
 @Module({
-  imports: [ProfilesModule],
+  imports: [
+    ProfilesModule,
+    TypeOrmModule.forRoot({
+      type: 'mariadb',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      database: 'nest-demo',
+      entities: [
+        User,
+        Profile
+      ],
+      synchronize: true
+    }),
+    ThrottlerModule.forRoot([
+      {
+        name: 'default',
+        ttl: minutes(1),
+        limit: 10,
+      },
+    ]),
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ThrottlerGuard],
 })
-export class AppModule {}
+export class AppModule { }

@@ -2,12 +2,11 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, 
 import { CreateProfileDto } from 'src/dto/create-profile.dto';
 import { UpdateProfileDto } from 'src/dto/update-profile.dto';
 import { ProfilesService } from './profiles.service';
-import type { UUID } from 'crypto';
 import { ProfilesGuard } from './profiles.guard';
 
 @Controller('profiles')
 export class ProfilesController {
-    constructor(private profilesService: ProfilesService) {}
+    constructor(private profilesService: ProfilesService) { }
 
     // GET /profiles
     @Get()
@@ -17,7 +16,7 @@ export class ProfilesController {
 
     // GET /profiles/:id
     @Get(':id')
-    findOne(@Param('id', ParseUUIDPipe) id: UUID) {
+    findOne(@Param('id', ParseUUIDPipe) id: string) {
         return this.profilesService.findOne(id);
     }
 
@@ -30,8 +29,8 @@ export class ProfilesController {
     // PUT /profiles/:id
     @Put(':id')
     update(
-        @Param('id', ParseUUIDPipe) id: UUID, 
-        @Body() updateProfileDto: UpdateProfileDto
+        @Param('id', ParseUUIDPipe) id: string,
+        @Body() updateProfileDto: UpdateProfileDto,
     ) {
         return this.profilesService.update(id, updateProfileDto);
     }
@@ -40,7 +39,7 @@ export class ProfilesController {
     @Delete(':id')
     @UseGuards(ProfilesGuard)
     @HttpCode(HttpStatus.NO_CONTENT)
-    remove(@Param('id', ParseUUIDPipe) id: UUID) {
-        this.profilesService.remove(id);
+    remove(@Param('id', ParseUUIDPipe) id: string) {
+        return this.profilesService.remove(id);
     }
 }

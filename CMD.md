@@ -13,5 +13,9 @@ nest g service profiles
 ## Create a guard
 nest generate guard profiles
 
+## Packages
+npm install @nestjs/typeorm typeorm mysql2
+npm install @nestjs/throttler
+
 ## Run bash script
 bash post.sh

@@ -4,6 +4,9 @@
 
 - [ ] Connect a database
 - [ ] Connect type OM/Prisma ORM
+- [ ] Add logging and monitoring
+- [ ] Rate limit
+- [ ] Caching
 - [ ] Authentication and Authorization
 - [ ] Implement Passport
 - [ ] Automated testing
