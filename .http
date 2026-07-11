@@ -24,7 +24,7 @@ Accept: application/json
 ###
 
 # Get with parameter
-GET {{baseUrl}}/profiles/1
+GET {{baseUrl}}/profiles/b7c9c35c-542c-48b9-96ab-9540506bc2db
 Accept: application/json
 
 ###
