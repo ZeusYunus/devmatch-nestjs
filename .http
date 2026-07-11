@@ -54,3 +54,45 @@ Content-Type: {{contentType}}
 # Delete profile
 DELETE  {{baseUrl}}/profiles/b063d182-ba95-4609-b7f9-28f5233617c2
 Content-Type: {{contentType}}
+
+# ######################################################################################################################
+# ######################################################################################################################
+# ######################################################################################################################
+
+### Get All Profiles
+GET {{baseUrl}}/profiles
+
+###
+
+### Create Profile
+POST {{baseUrl}}/profiles
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "description": "NestJS developer looking for meaningful connections."
+}
+
+###
+
+### Save the returned UUID here
+@profileId = 00000000-0000-0000-0000-000000000000
+
+### Get One
+GET {{baseUrl}}/profiles/{{profileId}}
+
+###
+
+### Update
+PUT {{baseUrl}}/profiles/{{profileId}}
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "description": "Senior NestJS developer who loves TypeScript and MySQL."
+}
+
+###
+
+### Delete
+DELETE {{baseUrl}}/profiles/{{profileId}}

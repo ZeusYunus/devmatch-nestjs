@@ -6,6 +6,7 @@ import { ProfilesModule } from './profiles/profiles.module';
 import { User } from './typeorm';
 import { Profile } from './profiles/entities/profile.entity';
 import { ThrottlerGuard, ThrottlerModule, minutes } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -31,6 +32,12 @@ import { ThrottlerGuard, ThrottlerModule, minutes } from '@nestjs/throttler';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService, ThrottlerGuard],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+  ],
 })
 export class AppModule { }
