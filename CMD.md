@@ -10,5 +10,8 @@ nest g controller profiles
 ## Create a service
 nest g service profiles
 
+## Create a guard
+nest generate guard profiles
+
 ## Run bash script
 bash post.sh
