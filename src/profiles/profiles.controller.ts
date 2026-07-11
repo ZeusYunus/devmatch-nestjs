@@ -28,7 +28,10 @@ export class ProfilesController {
 
     // PUT /profiles/:id
     @Put(':id')
-    update(@Param('id', ParseUUIDPipe) id: UUID, @Body() updateProfileDto: UpdateProfileDto) {
+    update(
+        @Param('id', ParseUUIDPipe) id: UUID, 
+        @Body() updateProfileDto: UpdateProfileDto
+    ) {
         return this.profilesService.update(id, updateProfileDto);
     }
 

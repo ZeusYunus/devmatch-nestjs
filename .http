@@ -34,7 +34,7 @@ POST {{baseUrl}}/profiles
 Content-Type: {{contentType}}
 
 {
-  "name": "Jerau",
+  "name": "Jer",
   "description": "Why don't you play COD anymore"
 }
 
